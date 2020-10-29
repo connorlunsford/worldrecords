@@ -1,0 +1,11 @@
+{{#each results}} 
+<h1>{{this.title}} - {{this.artist}}</h1>
+<img src="{{this.link}}" alt="image">
+<ul>
+    <li>Price: ${{this.price}}.00</li>
+    <li>In Stock: {{this.stock}}</li>
+    <li>Genre: {{this.genre}}</li>
+    <li>Year: {{this.year}}</li>
+{{/each}}
+</ul>
+
