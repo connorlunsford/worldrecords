@@ -1,0 +1,40 @@
+<h3>Insert Data Into "Vendors"</h3>
+<form action="flip3.engr.oregonstate.edu:7754/vendors_insert" method="GET">
+    <label for="company">Company Name: </label>
+    <input type="text" id="company"><br>
+    <label for="email">Email: </label>
+    <input type="text" id="email"><br>
+    <label for="phone">Phone Number: </label>
+    <input type="text" id="phone"><br>
+    <input type="submit" id="vendors">
+</form>
+
+
+<div>
+    <table>
+        <header>
+            <tr id="head">
+                <th>Vendor ID</th>
+                <th>Company</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </header>
+        <body>
+            {{#each results}}
+            <tr>
+                <td>{{this.vid}}</td>
+                <td>{{this.company}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.phone}}</td>
+            </tr>
+        {{/each}}
+        </body>
+    </table>
+</div>
+
+{{!-- The script is pulled from public/js/vendors_ajax.js 
+WR-Server-Side.js (line 14) specifies that all source files are pulled from public folder.--}}
+<script src="js/vendors_ajax.js"></script>

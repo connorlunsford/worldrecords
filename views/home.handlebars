@@ -1,0 +1,56 @@
+<h1>The Store</h1>
+<form action="flip3.engr.oregonstate.edu:7753/search" method="GET">
+    <input type="text" name="terms" id="terms">
+    <input type="submit" id="search" value="Search">
+</form>
+{{!-- Sample search result table
+Actual table will look the same, but be constructed via asynchronous ajax calls. --}}
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>Album Art</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Release Year</th>
+            <th>Price</th>
+            <th>Add to Cart</th>
+        </tr>
+    </thead>
+    <body>
+        {{#each results}}
+        <tr>
+            <td><img src="{{this.link}}" alt="Album"></td>
+            <td>{{this.title}}</td>
+            <td>{{this.artist}}</td>
+            <td>{{this.genre}}</td>
+            <td>{{this.year}}</td>
+            <td>{{this.price}}</td>
+            <td>
+                <form>
+                    <input type="submit" id="add_to_cart">
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+        <tr>
+            <td>EXAMPLE</td>
+            <td>Title</td>
+            <td>Artist</td>
+            <td>Genre</td>
+            <td>01/01/2001</td>
+            <td>$29.99</td>
+            <td>
+                <form>
+                    <input type="submit" id="add_to_cart">
+                </form>
+            </td>
+        </tr>
+    </body>
+</table>
+
+<a href="http://flip3.engr.oregonstate.edu:7754/cart"><button id="cart">CART</button></a>
+
+{{!-- The script is pulled from public/js/home_ajax.js 
+WR-Server-Side.js (line 14) specifies that all source files are pulled from public folder.--}}
+<script src="js/home_ajax.js"></script>

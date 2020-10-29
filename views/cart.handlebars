@@ -1,0 +1,38 @@
+<h3>Cart for Order #: </h3>
+
+<div>
+    <table>
+        <thead>
+            <tr id="head">
+                <th>Album Art</th>
+                <th>Album Title</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td><img src="{{this.link}}" alt="Album Art"></td>
+                <td>{{this.title}}</td>
+                <td>{{this.artist}}</td>
+                <td>{{this.genre}}</td>
+                <td>{{this.year}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.quantity}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+<h3 style="margin:5px;">Your total is: </h3>
+<a href="http://flip3.engr.oregonstate.edu:7754"><button id="buy" onclick="http://flip3.engr.oregonstate.edu:7754/">Purchase</button></a>
+
+</div>

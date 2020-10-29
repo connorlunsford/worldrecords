@@ -1,0 +1,35 @@
+<h3>Insert Data Into "Sales Orders"</h3>
+<form action="flip3.engr.oregonstate.edu:7754/sales_orders_insert" method="GET">
+    <label for="cid">Customer ID: </label>
+    <input type="text" id="cid"><br>
+    <label for="date">Date: </label>
+    <input type="date" id="date"><br>
+    <label for="cost">Cost: </label>
+    <input type="text" id="cost"><br>
+    <input type="submit" id="sales_orders"><br>
+</form>
+
+
+<div>
+    <table>
+        <thead>
+            <tr id="head">
+                <th>Customer ID</th>
+                <th>Date</th>
+                <th>Cost</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td>{{this.cid}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.cost}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+</div>

@@ -1,0 +1,55 @@
+<h3>Insert Data Into "Products"</h3>
+<form action="flip3.engr.oregonstate.edu:7754/products_insert" method="GET">
+    <label for="vid">Vendor ID: </label>
+    <input type="text" id="vid"><br>
+    <label for="title">Album Title: </label>
+    <input type="text" id="title"><br>
+    <label for="artist">Artist: </label>
+    <input type="text" id="artist"><br>
+    <label for="genre">Genre: </label>
+    <input type="text" id="genre"><br>
+    <label for="year">Year: </label>
+    <input type="text" id="year"><br>
+    <label for="stock">Stock: </label>
+    <input type="text" id="stock"><br>
+    <label for="price">Price: </label>
+    <input type="text" id="price"><br>
+    <label for="link">Link: </label>
+    <input type="text" id="link"><br>
+    <input type="submit" id="products">
+</form>
+
+<div>
+    <table>
+        <thead>
+            <tr id="head">
+                <th>Product ID</th>
+                <th>Album Art</th>
+                <th>Vendor ID</th>
+                <th>Album Title</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+             {{#each results}}
+            <tr>
+                <td>{{this.pid}}</td>
+                <td><img src="{{this.link}}" alt="Album Art"></td>
+                <td>{{this.vid}}</td>
+                <td>{{this.title}}</td>
+                <td>{{this.artist}}</td>
+                <td>{{this.genre}}</td>
+                <td>{{this.year}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.price}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

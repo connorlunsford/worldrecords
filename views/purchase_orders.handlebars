@@ -1,0 +1,33 @@
+<h3>Insert Data Into "Purchase Orders"</h3>
+<form action="flip3.engr.oregonstate.edu:7754/purchase_orders_insert" method="GET">
+    <label for="vid">Vendor ID: </label>
+    <input type="text" id="vid"><br>
+    <label for="date">Date: </label>
+    <input type="date" id="date"><br>
+    <label for="cost">Cost: </label>
+    <input type="cost" id="cost"><br>
+    <input type="submit" id="purchase_orders">
+</form>
+
+<div>
+    <table>
+        <thead>
+            <tr id="head">
+                <th>Vendor ID</th>
+                <th>Date</th>
+                <th>Cost</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td>{{this.vid}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.cost}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

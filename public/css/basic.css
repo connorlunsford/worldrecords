@@ -1,0 +1,77 @@
+* {
+    background-color: red;
+}
+
+#page_title {
+    text-align: center;
+}
+
+#nav_bar {
+    height: 20px;
+    background-color: black;
+    text-align: center;
+    width: 100%;
+    margin-left:0px;
+    margin-right:0px;}
+
+.nav_text {
+    background-color: black;
+    color: white;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+input {
+    background-color: white;
+}
+
+#terms {
+    width: 30%;
+    margin-top: 50px;
+    display: inline-block;
+    margin-left: 35%;
+}
+
+#search{
+    margin-top:50px;
+    display: inline-block;
+}
+
+table {
+    display: block;
+    margin-top: 50px;
+    margin-left: 20%;
+    margin-right:20%;
+    border-style: solid;
+    border-color: black;
+}
+
+td {
+    border-style: solid;
+    border-color: black;
+}
+
+th {
+    border-style: solid;
+    border-color: black;
+}
+
+#cart {
+    width: 5%;
+    height: 25px;
+    margin-top: 25px;
+    margin-left: 70%;
+    margin-right: 25%;
+    color: white;
+    background-color: black;
+}
+
+#buy {
+    width: 5%;
+    height: 25px;
+    margin-top: 25px;
+    margin-left: 70%;
+    margin-right: 25%;
+    color: white;
+    background-color: black;
+}

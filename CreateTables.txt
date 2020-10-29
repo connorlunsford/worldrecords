@@ -1,0 +1,58 @@
+CREATE TABLE `Customers` (
+`cid` int AUTO_INCREMENT NOT NULL,
+`f_name` varchar(255) NOT NULL,
+`l_name` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+PRIMARY KEY(`cid`));
+
+CREATE TABLE `Products` (
+`pid` int AUTO_INCREMENT NOT NULL,
+`vid` int,
+`title` varchar(255) NOT NULL,
+`artist` varchar(255) NOT NULL,
+`genre` varchar(255) NOT NULL,
+`year` varchar(255) NOT NULL,
+`stock` int NOT NULL,
+`price` int NOT NULL,
+`link` varchar(255) NOT NULL,
+PRIMARY KEY(`pid`),
+FOREIGN KEY (`vid`) REFERENCES `Vendors`(`vid`));
+
+CREATE TABLE `Vendors` (
+`vid` int AUTO_INCREMENT NOT NULL,
+`company` varchar(255) NOT NULL,
+`email` varchar(255) NOT NULL,
+`phone` varchar(255) NOT NULL,
+PRIMARY KEY(`vid`));
+
+CREATE TABLE `SalesOrders` (
+`cid` int,
+`date` date NOT NULL,
+`cost` int NOT NULL,
+PRIMARY KEY(`cid`, `date`),
+FOREIGN KEY (`cid`) REFERENCES `Customers`(`cid`));
+
+CREATE TABLE `PurchaseOrders` (
+`vid` int,
+`date` date NOT NULL,
+`cost` int NOT NULL,
+PRIMARY KEY (`vid`, `date`),
+FOREIGN KEY (`vid`) REFERENCES `Vendors`(`vid`));
+
+CREATE TABLE `SalesOrders_Products` (
+`cid` int,
+`date` date,
+`pid` int,
+`quantity` int NOT NULL,
+PRIMARY KEY(`cid`, `date`, `pid`),
+FOREIGN KEY (`cid`, `date`) REFERENCES `SalesOrders`(`cid`, `date`),
+FOREIGN KEY (`pid`) REFERENCES `Products`(`pid`));
+
+CREATE TABLE `PurchaseOrders_Products` (
+`vid` int,
+`date` date,
+`pid` int,
+`quantity` int NOT NULL,
+PRIMARY KEY(`vid`, `date`, `pid`),
+FOREIGN KEY (`vid`, `date`) REFERENCES `PurchaseOrders`(`vid`, `date`),
+FOREIGN KEY (`pid`) REFERENCES `Products`(`pid`));
