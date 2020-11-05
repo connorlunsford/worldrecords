@@ -130,6 +130,10 @@ app.get('/cart',function(req,res,next){
   res.render('cart');
 });
 
+app.get('/customers_salesorders',function(req,res,next){
+  res.render('customers_salesorders');
+});
+
 app.get('/products_table',function(req,res,next){
   var context = {};
   mysql.pool.query("INSERT INTO Products( `price`, `stock`, `description`, `image`, `cart`) VALUES (?,?,?,?,?,?)", 
