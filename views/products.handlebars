@@ -1,5 +1,5 @@
 <h3>Insert Data Into "Products"</h3>
-<form action="flip3.engr.oregonstate.edu:7754/products_insert" method="GET">
+<form action="flip3.engr.oregonstate.edu:7753/products_insert" method="GET">
     <label for="vid">Vendor ID: </label>
     <input type="text" id="vid"><br>
     <label for="title">Album Title: </label>
@@ -24,7 +24,6 @@
         <thead>
             <tr id="head">
                 <th>Product ID</th>
-                <th>Album Art</th>
                 <th>Vendor ID</th>
                 <th>Album Title</th>
                 <th>Artist</th>
@@ -40,7 +39,6 @@
              {{#each results}}
             <tr>
                 <td>{{this.pid}}</td>
-                <td><img src="{{this.link}}" alt="Album Art"></td>
                 <td>{{this.vid}}</td>
                 <td>{{this.title}}</td>
                 <td>{{this.artist}}</td>
@@ -53,3 +51,7 @@
         </tbody>
     </table>
 </div>
+
+{{!-- The script is pulled from public/js/products_ajax.js 
+WR-Server-Side.js (line 14) specifies that all source files are pulled from public folder.--}}
+<script src="js/products_ajax.js"></script>

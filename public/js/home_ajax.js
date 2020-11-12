@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', bindButtons);
             info.term = document.getElementById("terms").value;
             
             //Does GET based on info properties
-            req.open('GET', 'http://flip3.engr.oregonstate.edu:7754/search?name=' + info.term, true);
+            req.open('GET', 'http://flip3.engr.oregonstate.edu:7753/search?name=' + info.term, true);
             req.send(null)
             
             req.addEventListener('load', function(){
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', bindButtons);
                             var newPrice = document.createElement('td');
                             var newName = document.createElement('a');
                             
-                            newName.href = 'http://flip3.engr.oregonstate.edu:7754/product?id=' + result_row.id;
-                            newName.textContent = result_row.name;
+                            newName.href = 'http://flip3.engr.oregonstate.edu:7753/product?pid=' + result_row.pid;
+                            newName.textContent = result_row.title;
                             newPrice.textContent = '$' + result_row.price + '.00';
 
                             tableBody.appendChild(newRow);

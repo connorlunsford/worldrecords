@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', bindButtons);
             info.phone = document.getElementById('phone').value;
             
             //Does GET based on info properties
-            req.open('GET', 'http://flip3.engr.oregonstate.edu:7754/vendors_insert?company=' + info.company + '&email=' + info.email
+            req.open('GET', 'http://flip3.engr.oregonstate.edu:7753/vendors_insert?company=' + info.company + '&email=' + info.email
             + '&phone=' + info.phone, true);
             req.send(null)
             
             req.addEventListener('load', function(){
                 if(req.status >= 200 && req.status <= 400){
-                    console.log("Product Added"); //Success message
+                    console.log("Vendor Added"); //Success message
                 } else {
                     console.log("Error in network request: " + req.statusText); //Error message
               }});
