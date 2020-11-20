@@ -1,0 +1,46 @@
+<h3>Insert into PurchaseOrders_Products</h3>
+<p>
+    Use: Business use only. Keep track of purchases made from vendors. 
+    Inserting into this table also updates the PurchaseOrders table automatically.
+    Furthermore, a product's stock increases by an amount equal to 'Quantity' after inserting into this table. 
+    Warning: When inserting into the table, Vendor ID must match the vid listed for a given product in Products table.
+    This page is not for adding new products. Product must already exist in Products table. 
+    Refresh page to see changes.
+</p>
+
+<form action="flip3.engr.oregonstate.edu:7753/purchase_orders_products_insert" method="GET">
+    <label for="vid">Vendor ID: </label>
+    <input type="text" id="vid"><br>
+    <label for="date">Date: </label>
+    <input type="date" id="date"><br>
+    <label for="pid">Product ID: </label>
+    <input type="text" id="pid"><br>
+    <label for="quantity">Quantity: </label>
+    <input type="text" id="quantity"><br>
+    <input type="submit" id="POP">
+</form>
+
+<div>
+    <table>
+        <thead>
+            <tr id="head">
+                <th>Vendor ID</th>
+                <th>Date</th>
+                <th>Product ID</th>
+                <th>Quantity</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+          {{#each results}}
+            <tr>
+                <td>{{this.vid}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.pid}}</td>
+                <td>{{this.quantity}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

@@ -4,29 +4,21 @@
     <table>
         <thead>
             <tr id="head">
-                <th>Album Art</th>
-                <th>Album Title</th>
-                <th>Artist</th>
-                <th>Genre</th>
-                <th>Year</th>
-                <th>Stock</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <th>cid</th>
+                <th>date</th>
+                <th>pid</th>
+                <th>quantity</th>
+                <th>purchased</th>
             </tr>
         </thead>
         <tbody>
             {{#each results}}
             <tr>
-                <td><img src="{{this.link}}" alt="Album Art"></td>
-                <td>{{this.title}}</td>
-                <td>{{this.artist}}</td>
-                <td>{{this.genre}}</td>
-                <td>{{this.year}}</td>
-                <td>{{this.stock}}</td>
-                <td>{{this.price}}</td>
+                <td>{{this.cid}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.pid}}</td>
                 <td>{{this.quantity}}</td>
+                <td>{{this.purchased}}</td>
             </tr>
             {{/each}}
         </tbody>

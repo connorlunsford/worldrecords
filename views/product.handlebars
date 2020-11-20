@@ -6,6 +6,19 @@
     <li>In Stock: {{this.stock}}</li>
     <li>Genre: {{this.genre}}</li>
     <li>Year: {{this.year}}</li>
-{{/each}}
+    <li id="pid">{{this.pid}}</li>
 </ul>
+{{/each}}
 
+
+<form action="flip3.engr.oregonstate.edu:7753/sales_orders_products_insert" method="GET">
+    <label for="quantity">Quantity: </label>
+    <input type="text" id="quantity"><br>
+    <label for="cid">Customer ID: </label>
+    <input type="text" id="cid"><br>
+    <input type="submit" id="addcart" value="Add to Cart">
+</form>
+<a href="http://flip3.engr.oregonstate.edu:7753/cart"><button id="cart">CART</button></a>
+{{!-- The script is pulled from public/js/cart_ajax.js 
+WR-Server-Side.js (line 14) specifies that all source files are pulled from public folder.--}}
+<script src="js/cart_ajax.js"></script>

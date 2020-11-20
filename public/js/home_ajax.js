@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', bindButtons);
                             newRow.appendChild(newNameBox);
                             newRow.appendChild(newPrice);
                             newNameBox.appendChild(newName);
-                            
                         }
                     };
                     // For Troubleshooting

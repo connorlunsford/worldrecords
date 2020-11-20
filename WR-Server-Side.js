@@ -84,6 +84,20 @@ app.get('/purchase_orders',function(req,res,next){
     });
   });
 
+  //Go to http://flip3.engr.oregonstate.edu/7753/purchase_orders to see purchase_orders_products.handlebars
+  app.get('/purchase_orders_products',function(req,res,next){
+    var context = {};
+    mysql.pool.query('SELECT * FROM PurchaseOrders_Products', function(err, rows, fields){
+      if(err){
+        next(err);
+        return;
+      }
+      context.results = rows
+      res.render('purchase_orders_products', context);
+      });
+    });
+
+
 //Go to http://flip3.engr.oregonstate.edu/7753/customers to see customers.handlebars
 app.get('/customers',function(req,res,next){
   var context = {};
@@ -97,7 +111,7 @@ app.get('/customers',function(req,res,next){
     });
   });
 
-//Go to http://flip3.engr.oregonstate.edu/7754/product?id=x to see the product page for product with pid x
+//Go to http://flip3.engr.oregonstate.edu/7753/product?pid=x to see the product page for product with pid x
 //Click on a product search result automatically links to this page
 app.get('/product',function(req,res,next){
   var context = {};
@@ -161,24 +175,10 @@ app.get('/products_insert',function(req,res,next){
   });
 });
 
-app.get('/sales_orders_insert',function(req,res,next){
+app.get('/purchase_orders_products_insert',function(req,res,next){
   var context = {};
-  mysql.pool.query("INSERT INTO SalesOrders( `cid`,`date`,`cost`) VALUES (?,?,?)", 
-  [req.query.cid, req.query.date, req.query.cost], function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    context.insert = req.query
-    context.results = result
-    res.send(context)
-  });
-});
-
-app.get('/purchase_orders_insert',function(req,res,next){
-  var context = {};
-  mysql.pool.query("INSERT INTO PurchaseOrders( `vid`,`date`,`cost`) VALUES (?,?,?)", 
-  [req.query.vid, req.query.date, req.query.cost], function(err, result){
+  mysql.pool.query("INSERT INTO PurchaseOrders_Products( `vid`,`date`,`pid`, `quantity`) VALUES (?,?,?,?)", 
+  [req.query.vid, req.query.date, req.query.pid, req.query.quantity], function(err, result){
     if(err){
       next(err);
       return;
@@ -193,6 +193,20 @@ app.get('/customers_insert',function(req,res,next){
   var context = {};
   mysql.pool.query("INSERT INTO Customers( `f_name`, `l_name`, `email`) VALUES (?,?,?)", 
   [req.query.f_name, req.query.l_name, req.query.email], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    context.insert = req.query
+    context.results = result
+    res.send(context)
+  });
+});
+
+app.get('/sales_orders_products_insert',function(req,res,next){
+  var context = {};
+  mysql.pool.query("INSERT INTO SalesOrders_Products( `cid`, `date`, `pid`, `quantity`, `purchased`) VALUES (?,?,?,?,?)", 
+  [req.query.cid, req.query.date, req.query.pid, req.query.quantity, req.query.purchased], function(err, result){
     if(err){
       next(err);
       return;
