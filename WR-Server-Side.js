@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 7753); //Site address: http://flip3.engr.oregonstate.edu/7754
+app.set('port', 7755); //Site address: http://flip3.engr.oregonstate.edu/7754
 app.use(express.static('public')); //Allows files from the public folder to be accessed
 
 app.get('/',function(req,res,next){
@@ -143,6 +143,19 @@ app.get('/customers_salesorders',function(req,res,next){
   res.render('customers_salesorders');
 });
 
+//select query for individual cart
+app.get('/cart_individual',function(req,res,next){
+  var context = {};
+  mysql.pool.query('SELECT * FROM SalesOrders_Products WHERE cid=? AND purchased=0', [req.query.cid], function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = rows
+    res.render('cart_individual', context);
+    });
+  });
+
 //--------------------------------------END SELECT QUERIES--------------------------------------------
 
 //--------------------------------------START INSERT QUERIES------------------------------------------
@@ -218,6 +231,74 @@ app.get('/sales_orders_products_insert',function(req,res,next){
 });
 
 //--------------------------------------END INSERT QUERIES--------------------------------------------
+//--------------------------------------START UPDATE QUERIES------------------------------------------
+app.get('/customers_update',function(req,res,next){
+  var context = {};
+  mysql.pool.query("UPDATE Customers SET `f_name`=?, `l_name`=?, `email`=? WHERE cid=?", 
+  [req.query.f_name, req.query.l_name, req.query.email, req.query.cid], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = result
+    res.send(context)
+  });
+});
+//--------------------------------------END UPDATE QUERIES------------------------------------------
+
+//--------------------------------------START DELETE QUERIES------------------------------------------
+app.get('/vendors_delete',function(req,res,next){
+  var context = {};
+  mysql.pool.query("DELETE FROM Vendors WHERE vid=?", 
+  [req.query.vid], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = result
+    res.send(context)
+  });
+});
+
+app.get('/products_delete',function(req,res,next){
+  var context = {};
+  mysql.pool.query("DELETE FROM Products WHERE pid=?", 
+  [req.query.pid], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = result
+    res.send(context)
+  });
+});
+
+app.get('/customers_delete',function(req,res,next){
+  var context = {};
+  mysql.pool.query("DELETE FROM Customers WHERE cid=?", 
+  [req.query.cid], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = result
+    res.send(context)
+  });
+});
+
+app.get('/cart_delete',function(req,res,next){
+  var context = {};
+  mysql.pool.query("DELETE FROM SalesOrders_Products WHERE cid=? AND pid=?", 
+  [req.query.cid,req.query.pid], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = result
+    res.send(context)
+  });
+});
+//--------------------------------------END DELETE QUERIES------------------------------------------
 
 app.use(function(req,res){
   res.status(404);

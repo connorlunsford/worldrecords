@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', bindButtons);
             info.term = document.getElementById("terms").value;
             
             //Does GET based on info properties
-            req.open('GET', 'http://flip3.engr.oregonstate.edu:7753/search?name=' + info.term, true);
+            req.open('GET', 'http://flip3.engr.oregonstate.edu:7755/search?name=' + info.term, true);
             req.send(null)
             
             req.addEventListener('load', function(){

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', bindButtons);
             info.phone = document.getElementById('phone').value;
             
             //Does GET based on info properties
-            req.open('GET', 'http://flip3.engr.oregonstate.edu:7753/vendors_insert?company=' + info.company + '&email=' + info.email
+            req.open('GET', 'http://flip3.engr.oregonstate.edu:7754/vendors_insert?company=' + info.company + '&email=' + info.email
             + '&phone=' + info.phone, true);
             req.send(null)
             
@@ -22,5 +22,34 @@ document.addEventListener('DOMContentLoaded', bindButtons);
                     console.log("Error in network request: " + req.statusText); //Error message
               }});
             event.preventDefault();
+            location.reload();
         });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        table = document.getElementById("table");
+        table.onclick = function(event) {
+            let target = event.target;
+            if (target.className == "delete_button") {
+                var vid = target.parentNode.parentNode.children[0].innerText;
+                deleteQuery(vid);
+            }
+        }
+    });
+    
+    
+    deleteQuery = function(vid) {
+        var req = new XMLHttpRequest();
+        req.open('GET', 'http://flip3.engr.oregonstate.edu:7755/vendors_delete?vid=' + vid, true);
+        req.send(null)
+    
+        req.addEventListener('load', function(){
+            if(req.status >= 200 && req.status <= 400){
+                console.log("Product Deleted"); //Success message
+            } else {
+                console.log("Error in network request: " + req.statusText); //Error message
+            }
+        }
+        );
+        location.reload();
     }

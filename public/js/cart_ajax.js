@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', bindButtons);
             info.pid = document.getElementById('pid').textContent;
             
             //Does GET based on info properties
-            req.open('GET', 'http://flip3.engr.oregonstate.edu:7753/sales_orders_products_insert?cid=' + info.cid + '&date=CURRENT_DATE()' 
+            req.open('GET', 'http://flip3.engr.oregonstate.edu:7755/sales_orders_products_insert?cid=' + info.cid + '&date=CURRENT_DATE()' 
             + '&pid=' + info.pid + '&quantity=' + info.quantity + '&purchased=0', true);
             req.send(null)
             

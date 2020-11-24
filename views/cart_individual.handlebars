@@ -5,7 +5,7 @@
     <input type="submit" id="submit"><br>
 </form>
 
-<h3>Cart for all customers</h3>
+<h3>Cart for Customer #: {{this.cid}}</h3>
 
 <div>
     <table>
@@ -16,6 +16,7 @@
                 <th>pid</th>
                 <th>quantity</th>
                 <th>purchased</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody id="table">
@@ -26,6 +27,7 @@
                 <td>{{this.pid}}</td>
                 <td>{{this.quantity}}</td>
                 <td>{{this.purchased}}</td>
+                <td><button type="button" class="delete_button">Delete</button></td>
             </tr>
             {{/each}}
         </tbody>

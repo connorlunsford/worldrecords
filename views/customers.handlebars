@@ -1,5 +1,5 @@
 <h3>Insert Data Into "Customers"</h3>
-<form action="flip3.engr.oregonstate.edu:7753/customers_insert" method="GET">
+<form action="flip3.engr.oregonstate.edu:7755/customers_insert" method="GET">
     <label for="f_name">First Name: </label>
     <input type="text" id="f_name"><br>
     <label for="l_name">Last Name: </label>
@@ -21,14 +21,17 @@
                 <th>Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="table">
           {{#each results}}
-            <tr>
-                <td>{{this.cid}}</td>
-                <td>{{this.f_name}}</td>
-                <td>{{this.l_name}}</td>
-                <td>{{this.email}}</td>
-            </tr>
+                <tr>
+                    <td>{{this.cid}}</td>
+                    <td><form><input type="text" value="{{this.f_name}}"></form></td>
+                    <td><form><input type="text" value="{{this.l_name}}"></form></td>
+                    <td><form><input type="text" value="{{this.email}}"></form></td>
+                    <td><button type="button" class="update_button">Update</button></td>
+                    <td><button type="button" class="delete_button">Delete</button></td>
+                </tr>
+            </form>
             {{/each}}
         </tbody>
     </table>

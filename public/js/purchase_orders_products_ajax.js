@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', bindButtons);
             info.quantity = document.getElementById('quantity').value;
 
             //Does GET based on info properties
-            req.open('GET', 'http://flip3.engr.oregonstate.edu:7753/purchase_orders_products_insert?vid=' + info.vid
+            req.open('GET', 'http://flip3.engr.oregonstate.edu:7755/purchase_orders_products_insert?vid=' + info.vid
             + '&date=' + info.date + '&pid=' + info.pid + '&quantity=' + info.quantity, true);
             req.send(null)
             
@@ -23,5 +23,6 @@ document.addEventListener('DOMContentLoaded', bindButtons);
                     console.log("Error in network request: " + req.statusText); //Error message
               }});
             event.preventDefault();
+            location.reload();
         });
     }
