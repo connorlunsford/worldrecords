@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', bindButtons);
                             var newPrice = document.createElement('td');
                             var newName = document.createElement('a');
                             
-                            newName.href = 'http://flip3.engr.oregonstate.edu:7753/product?pid=' + result_row.pid;
+                            newName.href = 'http://flip3.engr.oregonstate.edu:7755/product?pid=' + result_row.pid;
                             newName.textContent = result_row.title;
                             newPrice.textContent = '$' + result_row.price + '.00';
 

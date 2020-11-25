@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', bindButtons);
             info.phone = document.getElementById('phone').value;
             
             //Does GET based on info properties
-            req.open('GET', 'http://flip3.engr.oregonstate.edu:7754/vendors_insert?company=' + info.company + '&email=' + info.email
+            req.open('GET', 'http://flip3.engr.oregonstate.edu:7755/vendors_insert?company=' + info.company + '&email=' + info.email
             + '&phone=' + info.phone, true);
             req.send(null)
             

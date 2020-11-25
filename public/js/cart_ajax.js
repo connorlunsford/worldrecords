@@ -5,14 +5,16 @@ document.addEventListener('DOMContentLoaded', bindButtons);
             var req = new XMLHttpRequest();
 
             //Set info property values equal to the value of the corresponding text box
-            var info = {quantity:null, cid:null, pid:null};
+            var info = {quantity:null, cid:null, pid:null, date:null};
             info.quantity = document.getElementById('quantity').value;
             info.cid = document.getElementById('cid').value;
             info.pid = document.getElementById('pid').textContent;
+            info.date = new Date();
             
             //Does GET based on info properties
-            req.open('GET', 'http://flip3.engr.oregonstate.edu:7755/sales_orders_products_insert?cid=' + info.cid + '&date=CURRENT_DATE()' 
-            + '&pid=' + info.pid + '&quantity=' + info.quantity + '&purchased=0', true);
+            req.open('GET', 'http://flip3.engr.oregonstate.edu:7755/sales_orders_products_insert?cid=' + info.cid + 
+            '&date=' + info.date.getFullYear() + '-' + (info.date.getMonth()+1) + '-' + info.date.getDate()
+             + '&pid=' + info.pid + '&quantity=' + info.quantity + '&purchased=0', true);
             req.send(null)
             
             req.addEventListener('load', function(){

@@ -231,6 +231,7 @@ app.get('/sales_orders_products_insert',function(req,res,next){
 });
 
 //--------------------------------------END INSERT QUERIES--------------------------------------------
+
 //--------------------------------------START UPDATE QUERIES------------------------------------------
 app.get('/customers_update',function(req,res,next){
   var context = {};
