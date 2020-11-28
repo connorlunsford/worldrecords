@@ -18,20 +18,20 @@
                 <th>Company</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Update</th>
                 <th>Delete</th>
             </tr>
         </header>
-        <body>
+        <tbody id="table">
             {{#each results}}
             <tr>
                 <td>{{this.vid}}</td>
                 <td>{{this.company}}</td>
                 <td>{{this.email}}</td>
                 <td>{{this.phone}}</td>
+                <td><button type="button" class="delete_button">Delete</button></td>
             </tr>
         {{/each}}
-        </body>
+        </tbody>
     </table>
 </div>
 

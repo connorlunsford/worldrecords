@@ -35,7 +35,7 @@
                 <th>Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="table">
              {{#each results}}
             <tr>
                 <td>{{this.pid}}</td>
@@ -46,6 +46,7 @@
                 <td>{{this.year}}</td>
                 <td>{{this.stock}}</td>
                 <td>{{this.price}}</td>
+                <td><button type="button" class="delete_button">Delete</button></td>
             </tr>
             {{/each}}
         </tbody>

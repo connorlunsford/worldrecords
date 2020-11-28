@@ -140,8 +140,16 @@ app.get('/cart',function(req,res,next){
   });
 
 app.get('/customers_salesorders',function(req,res,next){
-  res.render('customers_salesorders');
-});
+  var context = {};
+  mysql.pool.query('SELECT Customers.cid, Customers.f_name, Customers.l_name, SalesOrders.date, SalesOrders.cost FROM Customers LEFT JOIN SalesOrders ON Customers.cid = SalesOrders.cid', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = rows
+    res.render('customers_salesorders', context);
+    });
+  });
 
 //select query for individual cart
 app.get('/cart_individual',function(req,res,next){
