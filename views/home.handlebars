@@ -1,11 +1,80 @@
 <h1>The Store</h1>
+<h3>World Records is an online music retailer</h3>
+
 <form action="flip3.engr.oregonstate.edu:7755/search" method="GET">
     <input type="text" name="terms" id="terms">
     <input type="submit" id="search" value="Search">
 </form>
 
-
 <a href="http://flip3.engr.oregonstate.edu:7755/cart"><button id="cart">CART</button></a>
+
+<h2>Site Overview and Use - Please Read</h2>
+<p>There are functionalities on this site that should only be visible to the business and not the customer. However, for the 
+    sake of meeting project requirements and ease of review, all functionalities and tables are plainly displayed. 
+    On all pages except Home page: reload page to see changes.
+</p>
+
+<h3>Pages/Functionalities for Customer Use</h3>
+
+<h5>The "Home" page (current page)</h5>
+<p>Features a search bar which can be used to search the store for products. 
+    Searching any part of a word that exists in a product's title or artist attribute will result in that product being displayed.
+    For example, the query "an" returns "The Parallax II: Future Sequence" and "Year of the Black Rainbow" because "an" is contained in 
+    the artist attribute. "Instant Gratification" is also returned since "an" is contained in the title and artist attributes.
+    Clicking search without typing anything returns all products.
+    Clicking on a product's title after searching for it brings you to that product's page. This page is only reachable in this manner.
+</p>
+
+<h5>Single Product page</h5>
+<p>Features information about a particular product as well as album art for that product.
+    From here, you can add that product to your cart. Go to "Customers" page to view a list of customers and get your cid.
+</p>
+
+<h5>Cart Page</h5>
+<p>This page is viewable by clicking the cart button either on the Home page or the Single Product page.
+    This page displays the entries on the SalesOrders_Products table which have a purchased value of 0 (false).
+    Typing an existing customer's cid into the text box and hitting submit results in a link titled "My Cart" which navgiates to a 
+    page that displays only the cart for that particular customer. 
+</p>
+
+<h5>"All Products" page</h5>
+<p>This page features a mix of business use only and customer use functionalities. On this page it is possible to add a new product 
+    and view the entire product table. Adding a product is a business only functionality, while viewing all products is a customer functionality.
+</p>
+
+<h5>"Customers"</h5>
+<p>This page also features a mix business use only and customer use functionalities. On this page it is possible to register a new customer
+    (insert into Customers table) and view, update, and delete from entire Customers table. Viewing, updating, and deleting from customers
+    table is a business use only functionality, while registering a new customer is a customer functionality.
+</p>
+
+<h3>Pages/Functionalities for Business Use Only</h3>
+
+<h5>"Vendors" page</h5>
+<p>This page is used to keep track of the vendors that the business purchases from. Each vendor has a vid which can be associated with 
+    many products. Each product is associated with exactly one vendor. It is possible to insert new vendors here and to view entire 
+    Vendors table.
+</p>
+
+<h5>"Purchase Orders" page</h5>
+<p>This page has records of all purchases ever made from vendors. From here it is possible to view the entire PurchaseOrders table.
+</p>
+
+<h5>"Business Records" page</h5>
+<p>This page lets the business make new purchases of existing products from existing vendors. Making a new purchase automatically
+    updates the PurchaseOrders table and the stock attribute for the product that was purchased. From here it is possible to view 
+    the entire PurchaseOrders_Products table.
+</p>
+
+<h5>"Open Sales Orders" page</h5>
+<p>This page displays a JOIN of Customers with SalesOrders. This page exists solely to demonstrate the nullable relationship between 
+    Customers and SalesOrders, thus satisfying the project requirement that at least one one:many relationship be nullable.
+</p>
+
+<h5>"Sales Orders" page</h5>
+<p>This page displays the entire SalesOrders table. SalesOrders is the table used to populate a user's cart, but the pages for 
+    each are separate.
+</p>
 
 {{!-- The script is pulled from public/js/home_ajax.js 
 WR-Server-Side.js (line 14) specifies that all source files are pulled from public folder.--}}

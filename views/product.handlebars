@@ -1,5 +1,9 @@
 {{#each results}} 
 <h1>{{this.title}} - {{this.artist}}</h1>
+<p>Features information about a particular product as well as album art for that product.
+    From here, you can add this product to your cart. Go to "Customers" page to view a list of customers and get your cid.
+    Note: Before adding to cart, open the console under developer tools. If adding to cart is successful, a descriptive message 
+    will be displayed there. Click cart to view cart.</p>
 <img src="images/{{this.link}}.jpg" alt="image">
 <ul>
     <li>Price: ${{this.price}}.00</li>

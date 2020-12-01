@@ -1,11 +1,12 @@
 <h2> Please Enter your customer ID</h2>
+<p>This page displays the entries on the SalesOrders_Products table which have a purchased value of 0 (false).
+    Typing an existing customer's cid into the text box and hitting submit results in a link titled "My Cart" which navgiates to a 
+    page that displays only the cart for that particular customer. </p>
 <form action="flip3.engr.oregonstate.edu:7755/cart_individual" method="GET">
     <label for="cid">CID: </label>
     <input type="number" id="cid"><br>
     <input type="submit" id="submit"><br>
 </form>
-
-<h3>Cart for all customers</h3>
 
 <div>
     <table>
